@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Google Login</title>
+  </head>
+  <body>
+    Logeandose con Google
+    <hr />
+    <!--data-login_uri="https://your.domain/your_login_endpoint"-->
+    <!--En esta parte estamos ingresando el codigo para el boton de google sign in-->
+    <div
+      id="g_id_onload"
+      data-client_id="805584196160-i4hjbvg8rfs8rnqkp4dik226cd93av1u.apps.googleusercontent.com"
+      data-callback="handleCredentialResponse"
+      data-auto_prompt="false">
+    
+     
+    </div>
+    <div
+      class="g_id_signin"
+      data-type="standard"
+      data-size="large"
+      data-theme="outline"
+      data-text="sign_in_with"
+      data-shape="rectangular"
+      data-logo_alignment="left"
+    ></div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+
+    <script>
+      function handleCredentialResponse(response) {
+        // decodeJwtResponse() is a custom function defined by you
+        // to decode the credential response.
+        const responsePayload = decodeJwtResponse(response.credential);
+        //google tokens: ID_TOKEN
+
+        console.log('id_token', responsePayload);
+   
+      }
+    </script>
+  </body>
+</html>
